@@ -1,0 +1,420 @@
+﻿body {
+    background: black;
+}
+
+.player {
+    position: absolute;
+    height: 400pt;
+    width: 450pt;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+#album_cover {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+#thumbnail {
+    position: absolute;
+    width: 100%;
+    transition: 1s;
+    height: 100%;
+    top: -7%;
+    z-index: 0;
+    right: 0%;
+}
+
+.console {
+    position: absolute;
+    height: 25%;
+    width: 100%;
+    background: rgb(121, 163, 85);
+    bottom: 0%;
+    z-index: 2;
+    right: 0%;
+    border: 2px solid black
+}
+
+.play_pause {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 2;
+}
+
+#play {
+    bottom: 12.5%;
+    left: 3%;
+}
+
+#next_song, #previous_song {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 2;
+    bottom: 3%;
+}
+
+#next_song {
+    right: 23%;
+}
+
+#previous_song {
+    left: 4%;
+}
+
+#screen_menu {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 2;
+    left: 4%;
+    top: 3%;
+}
+
+.song_artist, .song_title {
+    position: absolute;
+    z-index: 2;
+    font-family: Montserrat, sans-serif;
+    left: 13%;
+}
+
+.song_artist {
+    color: white;
+    font-size: 17px;
+    bottom: 12.5%;
+}
+
+.song_title {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    bottom: 17%;
+}
+
+input [type=checkbox] {
+    display: none;
+}
+
+#random_song + label:before {
+    content: url("svg/random.svg");
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    filter: invert(1);
+    z-index: 2;
+    bottom: 3%;
+    right: 12%;
+}
+
+#random_song:checked + label {
+    content: url("svg/random.svg");
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    z-index: 2;
+    bottom: 3%;
+    right: 12%;
+}
+
+#repeat_song + label:before {
+    content: url("svg/redo.svg");
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 2;
+    bottom: 3.2%;
+    right: 3.8%;
+}
+
+#repeat_song:checked + label {
+    content: url("svg/redo.svg");
+    position: absolute;
+    height: 27px;
+    width: 27px;
+    cursor: pointer;
+    z-index: 2;
+    bottom: 3.2%;
+    right: 3.8%;
+}
+
+#heart_song + label:before {
+    content: url("svg/outline heart.svg");
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 2;
+    bottom: 13.5%;
+    right: 2.5%;
+}
+
+#heart_song:checked + label {
+    content: url("svg/heart.svg");
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    z-index: 2;
+    bottom: 13.5%;
+    right: 2.5%;
+}
+
+#progress_bar {
+    -webkit-appearance: none;
+    position: absolute;
+    z-index: 2;
+    height: 5px;
+    background: black;
+    width: 225pt;
+    bottom: 5%;
+    border-radius: 30px;
+    left: 15%;
+}
+
+    #progress_bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 15px;
+        width: 15px;
+        border: 0;
+        background: rgb(121, 163, 85);
+        border: 0.5px solid black;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    #progress_bar:focus {
+        outline: none;
+    }
+
+.current_time, .duration_time {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    bottom: -1.8%;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    align-items: center;
+}
+
+.current_time {
+    left: 10%;
+    color: white;
+}
+
+.duration_time {
+    right: 25%;
+    color: black;
+}
+
+#volume_up + label:before {
+    content: url("svg/volume-up.svg");
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    filter: invert(1);
+    top: 3%;
+    z-index: 2;
+    right: 2.5%;
+}
+
+#volume_up:checked + label {
+    content: url("svg/volume-mute.svg");
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    filter: invert(1);
+    top: 3%;
+    z-index: 2;
+    right: 2.5%;
+}
+
+#volume_bar {
+    -webkit-appearance: none;
+    position: absolute;
+    z-index: 2;
+    height: 5px;
+    background: white;
+    width: 100pt;
+    top: 5%;
+    border-radius: 30px;
+    right: 10%;
+}
+
+    #volume_bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 15px;
+        width: 15px;
+        border: 0;
+        background: rgb(121, 163, 85);
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    #volume_bar:focus {
+        outline: none;
+    }
+
+#menuscreen {
+    z-index: 1;
+    background: rgb(121, 163, 85);
+}
+
+#back_main {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    filter: invert(1);
+    cursor: pointer;
+    z-index: 1;
+    top: 4%;
+    left: 4%;
+}
+
+
+#search_menu {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    filter: invert(1);
+    z-index: 1;
+    top: 4.5%;
+    right: 4%;
+}
+
+ol#titles {
+    list-style: none;
+    z-index: 1;
+    font-family: Montserrat, sans-serif;
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+#menuTitlesSongs {
+    color: black;
+    cursor: not-allowed;
+}
+
+#SongsMenu, #PlaylistMenu {
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    height: 75%;
+    width: 90%;
+    z-index: 1;
+}
+
+#trackTitle, #trackArtist, #trackLength {
+    float: left;
+    list-style: none;
+    z-index: 1;
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 0%;
+}
+
+#trackTitle {
+    left: -5%;
+}
+
+#trackArtist {
+    left: 44%;
+}
+
+#trackLength {
+    right: 0%;
+}
+
+ul {
+    list-style: none;
+}
+
+li#menuTitlesSongs, li#menuTitlesPlaylists {
+    float: left;
+    padding: 0px 10px 0px 10px;
+}
+
+#PlaylistMenu {
+    visibility: hidden;
+}
+
+.playlistElements {
+    z-index: 1;
+    font-family: Montserrat, sans-serif;
+    font-size: 20px;
+}
+
+#songSearch {
+    position: absolute;
+    z-index: 1;
+    font-family: Montserrat, sans-serif;
+    top: 4.5%;
+    right: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    width: 230px;
+}
+
+#lockscreen {
+    z-index: 4;
+    background: rgb(121, 163, 85);
+}
+
+#lockArtist, #lockSong {
+    position: absolute;
+    z-index: 4;
+    font-family: Montserrat, sans-serif;
+    left: 15%;
+}
+
+#lockArtist {
+    color: white;
+    font-size: 25px;
+    bottom: 50%;
+}
+
+#lockSong {
+    color: black;
+    font-size: 30px;
+    bottom: 56%;
+}

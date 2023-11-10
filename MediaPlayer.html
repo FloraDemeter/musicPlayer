@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>REBMEM -- Media Player</title>
+    <link rel="stylesheet" href="MediaPlayer.css" />
+</head>
+<body>
+    <img src="covers/TheBaskervilles.jpg" id="album_cover" />
+    <audio src="music/Midnight at the Underground.mp3" id="song"></audio>
+
+    <!-- ------------------------- MAIN SCREEN ------------------------- -->
+    <div class="player" id="mainscreen">
+
+        <div class="console">
+        </div>
+
+        <img src="covers/TheBaskervilles.jpg" id="thumbnail" />
+        <img src="svg/play.svg" onclick="playPause()" class="play_pause" id="play" />
+        <img src="svg/forward.svg" onclick="nextSong()" id="next_song" />
+        <img src="svg/backward.svg" onclick="previousSong()" id="previous_song" />
+        <img src="svg/bars.svg" onclick="menuScreen()" id="screen_menu" />
+
+        <input type="checkbox" value="None" id="heart_song" onclick="likeSong()" name="check" />
+        <label class="heart" for="heart_song"></label>
+        <input type="checkbox" value="None" id="random_song" name="check" />
+        <label class="random" for="random_song"></label>
+        <input type="checkbox" value="None" id="repeat_song" onclick="repeatSong()" name="check" />
+        <label class="repeat" for="repeat_song"></label>
+        <input type="checkbox" value="None" id="volume_up" onclick="muteVol()" name="check" />
+        <label class="volume" for="volume_up"></label>
+
+        <input type="range" id="progress_bar" min="0" max="" value="0" onchange="changeProgressBar()" />
+        <input type="range" id="volume_bar" onchange="changeVol()" min="0" max="1" value="1" step="0.1" />
+
+        <div class="song_artist">
+            The Baskervilles
+        </div>
+        <div class="song_title">
+            Midnight at the Underground
+        </div>
+
+        <div class="current_time">
+        </div>
+        <div class="duration_time">
+        </div>
+    </div>
+    <!-- ------------------------- MENU SCREEN ------------------------- -->
+    <div class="player" id="menuscreen" style="visibility:hidden">
+        <img src="svg/search.svg" class="search_song" id="search_menu" />
+        <img src="svg/back.svg" onclick="backMain()" id="back_main" />
+
+        <input type="text" id="songSearch" onkeyup="searchList()" placeholder="Enter Title..">
+        <div id="contents">
+            <div class="header">
+                <ol id="titles">
+                    <li id="menuTitlesSongs" onclick="showSongs()">Songs</li>
+                    <li id="menuTitlesPlaylists" onclick="showPlaylists()">Playlists</li>
+                </ol>
+            </div>
+            <div id="content">
+                <div id="SongsMenu">
+                    <div id="trackTitle">
+                    </div>
+                    <div id="trackArtist">
+                    </div>
+                    <div id="trackLength">
+                    </div>
+                </div>
+                <div id="PlaylistMenu">
+                    <ol>
+                        <li class="playlistElements">All Songs</li>
+                        <li class="playlistElements">Liked Songs</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------- LOCK SCREEN ------------------------- -->
+    <div id="lockscreen" class="player" style="visibility:hidden">
+        <div class="song_artist" id="lockArtist">
+            The Baskervilles
+        </div>
+        <div class="song_title" id="lockSong">
+            Midnight at the Underground
+        </div>
+    </div>
+
+    <script src="MediaPlayer.js">
+    </script>
+</body>
+</html>
